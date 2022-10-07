@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../App";
 import axios from "axios";
-import Spinner from "react-bootstrap/Spinner";
+import {FallingLines} from "react-loader-spinner"
 
 const Leagues = () => {
   const [loading, setLoading] = useState(false);
@@ -32,11 +32,17 @@ const Leagues = () => {
   return (
     <div className="leagues-container">
       {loading ? (
-        <Spinner animation="grow" variant="success" />
+          <FallingLines
+          color="#e78709"
+          alignItem= "center"
+          width="100%"
+          visible={true}
+          ariaLabel="falling-lines-loading"
+        />
       ) : (
         data.map((item) => (
-          // console.log(item.area.ensignUrl)
-          <div key={item.id} className="leagues-div">
+          // console.log(item.name)
+          <div key={item.name} className="leagues-div">
             <img
               src={item.area.ensignUrl}
               alt="#"

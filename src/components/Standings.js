@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Spinner } from "react-bootstrap";
+// import { Spinner } from "react-bootstrap";
+import { FallingLines } from "react-loader-spinner";
+
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+// import FallingLines from "react-loader-spinner"
+
 import axios from "axios";
 
 const Standings = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [selectedYear, setSelectedYear] = useState("2021");
+  const [selectedYear, setSelectedYear] = useState("2022");
   const [selectedLeagueCode, setSelectedLeagueCode] = useState("PL");
 
   useEffect(() => {
@@ -27,7 +32,7 @@ const Standings = () => {
         console.error(error);
       })
       .finally(() => setLoading(false));
-  }, [selectedYear, selectedYear]);
+  }, [selectedYear, selectedLeagueCode]);
 
   return (
     <div className="standings-container">
@@ -39,16 +44,13 @@ const Standings = () => {
           onChange={(e) => setSelectedLeagueCode(e.target.value)}
         >
           <option value="PL" name="PL">
-           
             English Premier League
           </option>
 
           <option value="FL1" name="FL1">
-            
             Ligue 1
           </option>
           <option value="BL1" name="BL1">
-            
             Bundesliga
           </option>
           <option value="SA" name="SA">
@@ -83,10 +85,16 @@ const Standings = () => {
 
       <div className="standings-results">
         {loading ? (
-          <Spinner animation="grow" variant="success" />
+          // <Spinner animation="grow" variant="success" />
+          <FallingLines
+            color="#e78709"
+            width="100%"
+            visible={true}
+            ariaLabel="falling-lines-loading"
+          />
         ) : (
           data.map((item) => (
-            <div key={item.position} className="standing-info-div">
+            <div key={item.id} className="standing-info-div">
               {/* {console.log(item)} */}
 
               {/* <h1>
@@ -105,7 +113,6 @@ const Standings = () => {
               </h1> */}
 
               <table>
-              
                 {/* <tr>
                   <th>No.</th>
                   <th>Team logo</th>
@@ -113,22 +120,25 @@ const Standings = () => {
                   <th>Points</th>
 
                 </tr> */}
-                
-                <tbody>
-                <tr><td>{item.position}. </td>
-                  <td><img
-                    src={item.team.crestUrl}
-                    alt="#"
-                    style={{ width: "30px" }}
-                  /></td>
-                  <td>{item.team.name}</td>
-                  <td><span style={{ color: "green", marginLeft: "40px" }}>
-                  {item.points}
-                </span></td></tr></tbody>
-                  
 
-                
-               
+                <tbody>
+                  <tr>
+                    <td>{item.position}. </td>
+                    <td>
+                      <img
+                        src={item.team.crestUrl}
+                        alt="#"
+                        style={{ width: "30px" }}
+                      />
+                    </td>
+                    <td>{item.team.name}</td>
+                    <td>
+                      <span style={{ color: "green", marginLeft: "40px" }}>
+                        {item.points}
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           ))

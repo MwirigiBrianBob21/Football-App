@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios"
+import LikeButton from "../components/LikeButton"
 
 const Highlights = () => {
     const[data, setData] = useState([])
@@ -16,9 +17,11 @@ const Highlights = () => {
     return(
         <div className="live-content">
             {data.map((item)=>(
-                <div className="itemDiv" key={item.title} onClick={()=> window.open(item.matchviewUrl)}>
+                <div>
+                    <div className="itemDiv" key={item.title} onClick={()=> window.open(item.matchviewUrl)}>
                     <div className="itemHeading">
                         <h4>{item.title}</h4>
+                        
 
                     
                     
@@ -27,9 +30,14 @@ const Highlights = () => {
                     <img src={item.thumbnail} alt="#"/>
                    </div>
                    
+                   
                     </div>
+                    <div className="likes-counter"><LikeButton itemId={item.title} /></div>
+                </div>
                 
             ))}
+
+            
         </div>
     )
 }
