@@ -78,20 +78,20 @@
   grid-template-columns: repeat(5,1fr);
   justify-content: center;
   text-align: center;
-
-}
+  
+  }
   .leagues-div > img{
       width: 150px;
   
   }
   .leagues-div {
       margin: 20px 0;
-
+  
   }
   .leagues-div:hover {
       transform: scale(1.1);
-
-}
+  
+  }
   select {
     padding: 10 px;
     font-size: 19px;

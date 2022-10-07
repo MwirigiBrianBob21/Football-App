@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   return (
@@ -9,7 +10,8 @@ const Navbar = () => {
     <Link to="/highlights" className="link2">
       <button className='button-highlights' role="button">Highlights</button>
     </Link>
-        </div>
+        
+    </div>
     
   )
 }

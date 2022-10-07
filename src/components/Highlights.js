@@ -1,3 +1,6 @@
+import React, {useEffect, useState} from "react"
+import axios from "axios"
+
 const Highlights = () => {
     const[data, setData] = useState([])
     useEffect(()=>{
@@ -28,3 +31,7 @@ const Highlights = () => {
                 
             ))}
         </div>
+    )
+}
+
+export default Highlights;

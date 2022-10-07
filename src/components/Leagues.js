@@ -1,3 +1,12 @@
+import React, { useState, useEffect } from "react";
+import "../App";
+import axios from "axios";
+import Spinner from "react-bootstrap/Spinner";
+
+const Leagues = () => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState([]);
+
   useEffect(() => {
     setLoading(true);
     const options = {
@@ -19,3 +28,26 @@
       })
       .finally(() => setLoading(false));
   }, []);
+
+  return (
+    <div className="leagues-container">
+      {loading ? (
+        <Spinner animation="grow" variant="success" />
+      ) : (
+        data.map((item) => (
+          // console.log(item.area.ensignUrl)
+          <div key={item.id} className="leagues-div">
+            <img
+              src={item.area.ensignUrl}
+              alt="#"
+              style={{ borderRadius: "20%", width: "20px" }}
+            />
+            <h4>{item.name}</h4>
+          </div>
+        ))
+      )}
+    </div>
+  );
+};
+
+export default Leagues;
