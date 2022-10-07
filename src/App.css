@@ -1,25 +1,165 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-.navbar{
+.navbar-container{
   width: 100%;
   height: 10vh;
   background-color: black;
-  color: #ffff ;
+  color: #ffffff;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-container {
+  width: 100%;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 0;
+
+}
+
+.tab-leagues{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color:#ffffff;
+  height: 50px;
+  border-right: 5px solid #cccc;
+
+
+}
+.tab-standings{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color:#ffffff;
+  height: 50px;
+}
+
+.footer {
+  width: 100%;
+  height: 10vh;
+  background-color: black;
+  color: #ffff;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.leagues-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-content: center;
+  text-align: center;
+
+}
+  .leagues-div > img{
+      width: 150px;
+  
+  }
+  .leagues-div {
+      margin: 20px 0;
+
+  }
+  .leagues-div:hover {
+      transform: scale(1.1);
+
+}
+  select {
+    padding: 10 px;
+    font-size: 19px;
+}
+.standings-results {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+.standing-info-div {
+  margin: 20px 0;
+}
+.live-content{
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-image: inherit;
+  background-size: cover;
+  background-position: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+}
+.itemDiv{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px 0;
+  transition: all(0.5 ease);
+  width: fit-content;
+  height: min-content;
 
 }
 
-.content-container{
-
+.itemDiv :hover{
+  transform: scale(1.1);
+  border-style:groove;
+  box-shadow: 2px 3px 4px solid blue;
 }
-
-.footer{
-
+.itemImage >img{
+width: 250px;
+height: 250px;
+border: 1px solid rgba(214, 21, 21, 0);
+border-radius: 5px;
+}
+.button-highlights{
+  background: #e78709;
+  border-radius: 999px;
+  box-shadow: #644a19 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: Inter, Arial, Helvetica, sans-serif, "Apple Colot Emoji";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+  display: flex;
+  justify-content: center;
 }
