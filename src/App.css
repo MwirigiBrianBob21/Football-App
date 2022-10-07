@@ -31,7 +31,7 @@
 
 .tabs {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -47,6 +47,7 @@
   background-color: black;
   color:#ffffff;
   height: 50px;
+  width: 50%;
   border-right: 5px solid #cccc;
 
 
@@ -59,6 +60,7 @@
   background-color: black;
   color:#ffffff;
   height: 50px;
+  width: 50%;
 }
 
 .footer {
@@ -90,6 +92,8 @@
   }
   .leagues-div:hover {
       transform: scale(1.1);
+      border-bottom: 3px solid #e78709;
+      /* box-shadow: 2px 5px 5px solid green; */
   
   }
   select {
